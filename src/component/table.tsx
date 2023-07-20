@@ -1,35 +1,30 @@
-import React from 'react';
-import {useSelector} from "react-redux";
-import {RootState} from "../reducers/store";
+import React, {useEffect} from 'react';
 
-import {InitialStatetupe} from "../reducers/users.slice";
+
+import {getData} from "../reducers/users.slice";
+import {useAppSelector} from "./useAppSelector";
+import {useAppDispatch} from "../useAppDispatch";
 
 
 export const Tables = () => {
 
-    const users = useSelector<RootState,InitialStatetupe[]>(state => state.users)
+    const data = useAppSelector(state => state.users)
+    console.log(data)
 
+    const dispatch = useAppDispatch()
+    useEffect(()=>{
+        dispatch(getData())
+    },[ dispatch])
     return (
-        <div>
-            <table>
-                <thead>
-                <tr>
-                    <th>Имя</th>
-                    <th>Фамилия</th>
-                    <th>Возраст</th>
-                </tr>
-                </thead>
-                <tbody>
-                {users.map(user => (
-                    <tr key={user.id}>
-                        <td>{user.firstName}</td>
-                        <td>{user.lastName}</td>
-                        <td>{user.age}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </table>
-        </div>
+
+        <>
+            {data.map((el)=>{
+                return <div key={el.id}>
+                    <img style={{width:'50px',height:'50px'}} src={el.imageUrl} alt=""/>
+                    <p>{el.title}</p>
+                </div>
+            })}
+        </>
     );
 };
 
