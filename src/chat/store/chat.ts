@@ -10,6 +10,9 @@ const appSlice = createSlice({
     reducers: {
 
     },
+    extraReducers(bilder){
+
+    }
 });
 
 export const appReducer = appSlice.reducer;
