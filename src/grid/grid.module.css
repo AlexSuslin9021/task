@@ -1,11 +1,39 @@
-.grid{
+.grid {
+    display: grid;
+    height: 100%;
+    grid-gap: 20px;
+    grid-template-columns: 150px 1fr;
+    grid-template-rows: 50px 1fr 100px;
+    grid-template-areas:
+    "h h"
+    "a m"
+    "f f";
+}
+
+.header {
+    grid-area: h;
+    width: 2fr;
+    background: orange;
 
 }
-.sale1{}
-.sale2{}
-.sale3{}
-.sale4{}
-.product1{}
-.product2{}
-.product3{}
-.product4{}
+
+.article {
+    grid-area: a;
+    align-self: start;
+    background: lightgray;
+
+}
+
+.main {
+    grid-area: m;
+
+    background: aqua;
+
+}
+
+.footer {
+    grid-area: f;
+
+    background: gold;
+
+}

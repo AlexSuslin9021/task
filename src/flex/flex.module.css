@@ -1,0 +1,33 @@
+.flex1{
+flex-basis: 300px;
+    text-align: center;
+    border: 1px solid orangered;;
+
+}
+.flex2{
+    flex-basis: 300px;
+    text-align: center;
+    border: 1px solid orangered;;
+
+}
+.flex3{
+    flex-basis: 300px;
+    text-align: center;
+    border: 1px solid orangered;;
+
+}
+.p{
+    color: white;
+
+}
+.flex img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+@media screen and (max-width:650px ){
+    .flex3{
+      order: -1;
+    }
+    
+}
